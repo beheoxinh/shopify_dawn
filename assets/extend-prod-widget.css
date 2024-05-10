@@ -74,3 +74,35 @@
     padding: 7px 2px;
     font-weight: 600;
 }
+
+/* Shipping tab */
+.shipping-render .shipping-chain {
+    position: relative;
+    display: flex;
+    list-style-type: none
+}
+
+.shipping-render .shipping-chain .chain-node {
+    color: white;
+    width: 42px;
+    height: 34px;
+    padding: 8px;
+    border-radius: 50%;
+    background-color: #025BBF;
+    box-sizing: border-box;
+}
+
+.shipping-render .shipping-chain .chain-line {
+    width: 100%;
+    position: relative;
+
+}
+
+.shipping-render .shipping-chain .chain-line hr {
+    z-index: -1;
+    width: 100%;
+    top: 20%;
+    height: 1px;
+    background-color: #025BBF;
+    position: absolute;
+}

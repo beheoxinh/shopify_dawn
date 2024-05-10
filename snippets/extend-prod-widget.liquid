@@ -6,24 +6,47 @@
         </ul>
     </div>
     <div class="tab-content">
-        <label>
-            <select name="quantity">
-                <option>Buy 1 item</option>
-                <option>Buy 2 items</option>
-            </select>
-        </label>
-        <table>
-            <tr>
-                <th>Quantity</th>
-                <th>Price</th>
-            </tr>
-            <tr>
-                <td>Buy 1 item</td>
-                <td>$10</td>
-            </tr>
-        </table>
+        <div class="tab-section-content" id="tab1">
+            <label>
+                <select name="quantity">
+                    <option>Standard shipping</option>
+                    <option>Fast shipping</option>
+                </select>
+            </label>
+            <div class="shipping-render">
+                <ul class="shipping-chain">
+                    <li class="chain-node"><img id="cart-process"
+                                                src=""
+                                                alt="SVG Image"></li>
+                    <li class="chain-line">
+                        <hr>
+                    </li>
+                    <li class="chain-node"><img id="shipping-process"
+                                                src=""
+                                                alt="SVG Image"></li>
+                </ul>
+            </div>
+        </div>
+        <div style="display: none" class="tab-section-content" id="tab2">
+            <label>
+                <select name="quantity">
+                    <option>Buy 1 item</option>
+                    <option>Buy 2 items</option>
+                </select>
+            </label>
+            <table>
+                <tr>
+                    <th>Quantity</th>
+                    <th>Price</th>
+                </tr>
+                <tr>
+                    <td>Buy 1 item</td>
+                    <td>$10</td>
+                </tr>
+            </table>
+        </div>
     </div>
     <script>
-        
+
     </script>
 </div>
