@@ -78,7 +78,7 @@
 /* Shipping tab */
 
 .shipping-render {
-    margin: 20px 0;
+    margin: 10px 0;
 }
 
 .shipping-render .shipping-chain {
@@ -125,10 +125,11 @@
 
 .shipping-render .shipping-chain .chain-line hr {
     z-index: -1;
-    width: calc(100% + 42px);
-    top: 40%;
-    left: -21px;
-    height: 1px;
+    width: calc(100% + 54px);
+    top: 50%;
+    left: -27px;
+    height: 3px;
     background-color: #025BBF;
     position: absolute;
+    margin: 0;
 }
