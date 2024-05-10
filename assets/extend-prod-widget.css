@@ -76,16 +76,41 @@
 }
 
 /* Shipping tab */
+
+.shipping-render {
+    margin: 20px 0;
+}
+
 .shipping-render .shipping-chain {
+    width: 80%;
+    margin: 0 auto;
+    padding: 0;
     position: relative;
     display: flex;
-    list-style-type: none
+    list-style-type: none;
 }
 
 .shipping-render .shipping-chain .chain-node {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.shipping-render .shipping-chain .chain-node .process-title, .chain-node .process-date {
+    display: block;
+    width: 85px;
+    height: 10px;
+    color: #025BBF;
+    font-weight: 600;
+    font-size: 13px;
+    text-align: center;
+}
+
+.shipping-render .shipping-chain .chain-node img {
     color: white;
     width: 42px;
-    height: 34px;
+    height: 38px;
     padding: 8px;
     border-radius: 50%;
     background-color: #025BBF;
@@ -100,8 +125,9 @@
 
 .shipping-render .shipping-chain .chain-line hr {
     z-index: -1;
-    width: 100%;
-    top: 20%;
+    width: calc(100% + 42px);
+    top: 40%;
+    left: -21px;
     height: 1px;
     background-color: #025BBF;
     position: absolute;
