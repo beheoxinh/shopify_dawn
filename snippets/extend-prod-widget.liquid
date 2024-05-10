@@ -1,12 +1,12 @@
 <div class="tabs-layout">
     <div class="tab-header">
         <ul class="tab-head-list">
-            <li>Shipping</li>
-            <li class="selected">Discount</li>
+            <li id="tab1" class="tab-select-control">Shipping</li>
+            <li id="tab2" class="tab-select-control">Discount</li>
         </ul>
     </div>
     <div class="tab-content">
-        <div class="tab-section-content" id="tab1">
+        <div class="tab-section-content" id="content-tab1">
             <label>
                 <select name="quantity">
                     <option>Standard shipping</option>
@@ -31,7 +31,7 @@
                 </ul>
             </div>
         </div>
-        <div style="display: none" class="tab-section-content" id="tab2">
+        <div class="tab-section-content" id="content-tab2">
             <label>
                 <select name="quantity">
                     <option>Buy 1 item</option>
@@ -50,17 +50,57 @@
             </table>
         </div>
     </div>
-    <script>
-        function pushImgSVG(targetId, svgString) {
-            // parse svg to base64 uri data
-            var svgDataUri = "data:image/svg+xml;base64," + btoa(svgString);
-            // get img tag by id
-            var imgTag = document.getElementById(targetId);
-            // set source thôi
-            imgTag.src = svgDataUri;
-        }
-
-        pushImgSVG('cart-process', '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="#fff"> <path fill-rule="evenodd" d="M4.25 3a.75.75 0 0 0 0 1.5h1.612a.25.25 0 0 1 .248.22l1.04 8.737a1.75 1.75 0 0 0 1.738 1.543h5.362a.75.75 0 0 0 0-1.5h-5.362a.25.25 0 0 1-.248-.22l-.093-.78h5.35a2.75 2.75 0 0 0 2.743-2.54l.358-4.652a.75.75 0 0 0-.748-.808h-8.656a1.75 1.75 0 0 0-1.732-1.5h-1.612Zm9.648 8h-5.53l-.595-5h7.667l-.296 3.846a1.25 1.25 0 0 1-1.246 1.154Z"/><path d="M2.75 6.5a.75.75 0 0 0 0 1.5h.5a.75.75 0 0 0 0-1.5h-.5Z"/><path d="M2.75 9.5a.75.75 0 0 0 0 1.5h1.5a.75.75 0 0 0 0-1.5h-1.5Z"/><path d="M2 13.25a.75.75 0 0 1 .75-.75h2.5a.75.75 0 0 1 0 1.5h-2.5a.75.75 0 0 1-.75-.75Z"/><path d="M10 17a1 1 0 1 1-2 0 1 1 0 0 1 2 0Z"/><path d="M15 17a1 1 0 1 1-2 0 1 1 0 0 1 2 0Z"/></svg>')
-        pushImgSVG('shipping-process', '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="#fff"><path fill-rule="evenodd" d="M4 5.25a.75.75 0 0 1 .75-.75h6.991a2.75 2.75 0 0 1 2.645 1.995l.427 1.494a.25.25 0 0 0 .18.173l1.681.421a1.75 1.75 0 0 1 1.326 1.698v1.219a1.75 1.75 0 0 1-1.032 1.597 2.5 2.5 0 1 1-4.955.153h-3.025a2.5 2.5 0 1 1-4.78-.75h-.458a.75.75 0 0 1 0-1.5h2.5c.03 0 .06.002.088.005a2.493 2.493 0 0 1 1.947.745h4.43a2.493 2.493 0 0 1 1.785-.75c.698 0 1.33.286 1.783.748a.25.25 0 0 0 .217-.248v-1.22a.25.25 0 0 0-.19-.242l-1.682-.42a1.75 1.75 0 0 1-1.258-1.217l-.427-1.494a1.25 1.25 0 0 0-1.202-.907h-6.991a.75.75 0 0 1-.75-.75Zm2.5 9.25a1 1 0 1 0 0-2 1 1 0 0 0 0 2Zm8 0a1 1 0 1 0 0-2 1 1 0 0 0 0 2Z"/><path d="M3.25 8a.75.75 0 0 0 0 1.5h5a.75.75 0 0 0 0-1.5h-5Z"/></svg>')
-    </script>
 </div>
+
+<script>
+    function pushImgSVG(targetId, svgString) {
+        // parse svg to base64 uri data
+        var svgDataUri = "data:image/svg+xml;base64," + btoa(svgString);
+        // get img tag by id
+        var imgTag = document.getElementById(targetId);
+        // set source thôi
+        imgTag.src = svgDataUri;
+    }
+
+    pushImgSVG('cart-process', '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="#fff"> <path fill-rule="evenodd" d="M4.25 3a.75.75 0 0 0 0 1.5h1.612a.25.25 0 0 1 .248.22l1.04 8.737a1.75 1.75 0 0 0 1.738 1.543h5.362a.75.75 0 0 0 0-1.5h-5.362a.25.25 0 0 1-.248-.22l-.093-.78h5.35a2.75 2.75 0 0 0 2.743-2.54l.358-4.652a.75.75 0 0 0-.748-.808h-8.656a1.75 1.75 0 0 0-1.732-1.5h-1.612Zm9.648 8h-5.53l-.595-5h7.667l-.296 3.846a1.25 1.25 0 0 1-1.246 1.154Z"/><path d="M2.75 6.5a.75.75 0 0 0 0 1.5h.5a.75.75 0 0 0 0-1.5h-.5Z"/><path d="M2.75 9.5a.75.75 0 0 0 0 1.5h1.5a.75.75 0 0 0 0-1.5h-1.5Z"/><path d="M2 13.25a.75.75 0 0 1 .75-.75h2.5a.75.75 0 0 1 0 1.5h-2.5a.75.75 0 0 1-.75-.75Z"/><path d="M10 17a1 1 0 1 1-2 0 1 1 0 0 1 2 0Z"/><path d="M15 17a1 1 0 1 1-2 0 1 1 0 0 1 2 0Z"/></svg>')
+    pushImgSVG('shipping-process', '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="#fff"><path fill-rule="evenodd" d="M4 5.25a.75.75 0 0 1 .75-.75h6.991a2.75 2.75 0 0 1 2.645 1.995l.427 1.494a.25.25 0 0 0 .18.173l1.681.421a1.75 1.75 0 0 1 1.326 1.698v1.219a1.75 1.75 0 0 1-1.032 1.597 2.5 2.5 0 1 1-4.955.153h-3.025a2.5 2.5 0 1 1-4.78-.75h-.458a.75.75 0 0 1 0-1.5h2.5c.03 0 .06.002.088.005a2.493 2.493 0 0 1 1.947.745h4.43a2.493 2.493 0 0 1 1.785-.75c.698 0 1.33.286 1.783.748a.25.25 0 0 0 .217-.248v-1.22a.25.25 0 0 0-.19-.242l-1.682-.42a1.75 1.75 0 0 1-1.258-1.217l-.427-1.494a1.25 1.25 0 0 0-1.202-.907h-6.991a.75.75 0 0 1-.75-.75Zm2.5 9.25a1 1 0 1 0 0-2 1 1 0 0 0 0 2Zm8 0a1 1 0 1 0 0-2 1 1 0 0 0 0 2Z"/><path d="M3.25 8a.75.75 0 0 0 0 1.5h5a.75.75 0 0 0 0-1.5h-5Z"/></svg>')
+
+    function hookEventTabPanel(targetId, targetContentId) {
+        document.getElementById(targetId).addEventListener('click', function () {
+            document.querySelectorAll('.tab-select-control').forEach(content => {
+                content.classList.remove('selected');
+            });
+            document.getElementById(targetId).classList.add('selected');
+
+            document.querySelectorAll('.tab-section-content').forEach(content => {
+                content.classList.add('hidden');
+            });
+            document.getElementById(targetContentId).classList.remove('hidden');
+
+        });
+    }
+
+    function setTabActive(targetId, targetContentId) {
+        console.log('Something?');
+        document.querySelectorAll('.tab-select-control').forEach(content => {
+            console.log('content.id: ', content.id);
+            if (content.id === targetId) {
+                content.classList.add('selected');
+            }
+        });
+        document.querySelectorAll('.tab-section-content').forEach(content => {
+            console.log('==> content.id: ', content.id);
+            if (content.id === targetContentId) {
+                content.classList.remove('hidden');
+            } else {
+                content.classList.add('hidden');
+            }
+        });
+    }
+
+    document.addEventListener("DOMContentLoaded", function () {
+        setTabActive('tab1', 'content-tab1');
+        hookEventTabPanel('tab1', 'content-tab1');
+        hookEventTabPanel('tab2', 'content-tab2');
+    });
+</script>

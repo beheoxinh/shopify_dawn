@@ -79,8 +79,6 @@
 
 .shipping-render {
     margin: 20px 0;
-    font-family: Arial, serif;
-    overflow: hidden;
 }
 
 .shipping-render .shipping-chain {
@@ -101,9 +99,9 @@
 
 .shipping-render .shipping-chain .chain-node .process-title, .chain-node .process-date {
     display: block;
-    width: 100px;
-    height: 15px;
-    color: #025bbf;
+    width: 85px;
+    height: 10px;
+    color: #025BBF;
     font-weight: 600;
     font-size: 13px;
     text-align: center;
@@ -112,7 +110,7 @@
 .shipping-render .shipping-chain .chain-node img {
     color: white;
     width: 42px;
-    height: 42px;
+    height: 38px;
     padding: 8px;
     border-radius: 50%;
     background-color: #025BBF;
@@ -127,10 +125,10 @@
 
 .shipping-render .shipping-chain .chain-line hr {
     z-index: -1;
-    width: calc(100% + 64px);
-    top: -8%;
-    left: -32px;
-    height: 2px;
-    background-color: #025bbf;
+    width: calc(100% + 42px);
+    top: 40%;
+    left: -21px;
+    height: 1px;
+    background-color: #025BBF;
     position: absolute;
 }
