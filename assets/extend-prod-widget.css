@@ -1,16 +1,21 @@
 .tabs-layout {
-    max-width: 250px;
+    max-width: 100%;
     font-family: Arial, serif;
+    overflow: hidden;
 }
 
 .tabs-layout .tab-head-list {
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: center;
     margin: 0 0 15px 0;
     padding: 0;
-    display: flex;
     list-style-type: none;
 }
 
 .tabs-layout .tab-head-list li {
+    width: 50%;
+    margin: 0;
     display: inline-block;
     padding: 5px 32px;
     border: 2px solid transparent;
@@ -18,7 +23,7 @@
     color: #025BBF;
     font-size: 14px;
     font-weight: 600;
-    margin: 0;
+    text-align: center;
     cursor: pointer;
 }
 
@@ -66,6 +71,6 @@
 }
 
 .tabs-layout .tab-content td {
-    padding: 8px 2px;
+    padding: 7px 2px;
     font-weight: 600;
 }
