@@ -1,0 +1,71 @@
+.tabs-layout {
+    max-width: 250px;
+    font-family: Arial, serif;
+}
+
+.tabs-layout .tab-head-list {
+    margin: 0 0 15px 0;
+    padding: 0;
+    display: flex;
+    list-style-type: none;
+}
+
+.tabs-layout .tab-head-list li {
+    display: inline-block;
+    padding: 5px 32px;
+    border: 2px solid transparent;
+    border-bottom: 2px solid #025BBF;
+    color: #025BBF;
+    font-size: 14px;
+    font-weight: 600;
+    margin: 0;
+    cursor: pointer;
+}
+
+.tabs-layout .tab-head-list li:hover {
+    color: white;
+    background-color: #94D8F6;
+}
+
+.tabs-layout .tab-head-list li.selected {
+    cursor: not-allowed;
+    color: white;
+    background-color: #025BBF !important;
+}
+
+.tabs-layout .tab-head-list li.selected:hover {
+    background-color: #94D8F6;
+}
+
+.tabs-layout .tab-content select {
+    color: #025BBF;
+    border-radius: 5px;
+    border: 1px solid #025BBF;
+}
+
+.tabs-layout .tab-content table, .tabs-layout .tab-content th, .tabs-layout .tab-content td {
+    color: #025BBF;
+    border: 1px solid #025BBF;
+    border-collapse: collapse;
+}
+
+.tabs-layout .tab-content table {
+    display: table;
+    margin-top: 10px;
+    width: 100%;
+}
+
+.tabs-layout .tab-content th, .tab-content td {
+    width: 50%;
+    font-size: 12px;
+    text-align: center;
+}
+
+.tabs-layout .tab-content th {
+    padding: 2px;
+}
+
+.tabs-layout .tab-content td {
+    padding: 8px 2px;
+    font-weight: 600;
+}
