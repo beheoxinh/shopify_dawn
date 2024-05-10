@@ -125,10 +125,10 @@
 
 .shipping-render .shipping-chain .chain-line hr {
     z-index: -1;
-    width: calc(100% + 42px);
-    top: 40%;
-    left: -21px;
+    width: calc(100% + 44px);
+    top: -12%;
+    left: -22px;
     height: 1px;
-    background-color: #025BBF;
+    background-color: #025bbf;
     position: absolute;
 }
