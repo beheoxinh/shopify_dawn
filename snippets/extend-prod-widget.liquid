@@ -156,7 +156,8 @@
     }
 
     function getProductVariant(){
-        return new URLSearchParams(new URL(window.location.href).search).get('variant');
+        const urlParams =  new URLSearchParams(new URL(window.location.href).search)
+        return urlParams.get('variant').toString().trim();
     }
 
     document.addEventListener("DOMContentLoaded", function () {
