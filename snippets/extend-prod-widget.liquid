@@ -138,7 +138,7 @@
         return day + '/' + month;
     }
 
-    function calcDiscountTotalPrice() {
+    const callbackCalcDiscount = function calcDiscountTotalPrice() {
         let productPrice = 0; const prodVariant = getProductVariant();
         console.log('list variants:', meta.product.variants);
         for (const el of meta.product.variants) {
@@ -166,12 +166,18 @@
         return urlParams.get('variant').toString().trim();
     }
 
+    const observer = new MutationObserver(callbackCalcDiscount);
+
+
     document.addEventListener("DOMContentLoaded", function () {
         calcDateDelivery();
         calcDiscountTotalPrice();
         setTabActive('tab1', 'content-tab1');
         hookEventTabPanel('tab1', 'content-tab1');
         hookEventTabPanel('tab2', 'content-tab2');
+        
+        const config = { attributes: true, childList: true, subtree: true };
+        observer.observe(document.getElementsByTagName('product-info').item(0), config);
     });
 
 </script>
