@@ -158,7 +158,7 @@
         } else if (8 <= selectedValue) {
             productPrice = productPrice * 0.7;
         }
-        document.getElementById('sw-discount-price').innerText = productPrice;
+        document.getElementById('sw-discount-price').innerText = productPrice + ' ' + Shopify.currency.active;
     }
 
     function getProductVariant(){
