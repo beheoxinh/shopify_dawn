@@ -140,6 +140,7 @@
 
     function calcDiscountTotalPrice() {
         const prodVariant = getProductVariant();
+        let productPrice = 0;
         for (const el of meta.product.variants) {
             if(prodVariant=== el.id){
                let productPrice = el.price;
