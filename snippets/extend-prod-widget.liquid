@@ -99,6 +99,7 @@
     }
 
     function calcDateDelivery(){
+        console.log('calc >>>>>>>>>>>>>>')
         let currentDate = new Date();
 
         document.getElementById('ordered-day').
@@ -112,6 +113,7 @@
         console.log("Delivery Date: ", formattedDate);
     }
     calcDateDelivery();
+
     document.addEventListener("DOMContentLoaded", function () {
         setTabActive('tab1', 'content-tab1');
         hookEventTabPanel('tab1', 'content-tab1');
