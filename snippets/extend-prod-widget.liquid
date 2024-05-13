@@ -173,9 +173,15 @@
         hookEventTabPanel('tab1', 'content-tab1');
         hookEventTabPanel('tab2', 'content-tab2');
 
-        const observer = new MutationObserver(calcDiscountTotalPrice);
-        observer.observe(document.getElementsByTagName('variant-selects').item(0), { attributes: true, childList: true, subtree: true });
-        console.log('Element: ', document.getElementsByTagName('variant-selects').item(0));
+
+        let observer = new MutationObserver(function(mutationsList, observer) {
+            calcDiscountTotalPrice();
+            console.log('DOM của phần tử đã thay đổi!');
+        });
+        observer.observe(
+            document.getElementsByTagName('variant-selects').item(0),
+            { attributes: true, childList: true, subtree: true }
+        );
     });
 
 </script>
