@@ -140,11 +140,11 @@
 
     function calcDiscountTotalPrice() {
         let productPrice = 0; const prodVariant = getProductVariant();
-
+        console.log('list variants:', meta.product.variants);
         for (const el of meta.product.variants) {
-            if(prodVariant=== el.id){
+            if(prodVariant == el.id){
                productPrice = el.price;
-               break;
+               console.log('found: '+ el)
             }
         }
         const selectElement = document.getElementById('sel-discount-quantity');
