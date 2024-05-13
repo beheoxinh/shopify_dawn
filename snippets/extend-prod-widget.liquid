@@ -140,6 +140,7 @@
 
     function calcDiscountTotalPrice() {
         let productPrice = 10000;
+        console.lo('getProductVariant: ', getProductVariant)
         const selectElement = document.getElementById('sel-discount-quantity');
         const selectedValue = selectElement.value;
         document.getElementById('sw-discount-quantity').innerText = selectElement.options[selectElement.selectedIndex].textContent;
@@ -152,6 +153,10 @@
             productPrice = productPrice * 0.7;
         }
         document.getElementById('sw-discount-price').innerText = productPrice;
+    }
+
+    function getProductVariant(){
+        return new URLSearchParams(new URL(window.location.href).search).get('variant');
     }
 
     document.addEventListener("DOMContentLoaded", function () {
