@@ -139,26 +139,26 @@
     }
 
     function calcDiscountTotalPrice() {
-        let productPrice = 0; const prodVariant = getProductVariant();
-        console.log('list variants:', meta.product.variants);
-        for (const el of meta.product.variants) {
-            if(prodVariant == el.id){
-               productPrice = el.price;
-               console.log('found: '+ el)
+            let productPrice = 0; const prodVariant = getProductVariant();
+            console.log('list variants:', meta.product.variants);
+            for (const el of meta.product.variants) {
+                if(prodVariant == el.id){
+                   productPrice = el.price;
+                   console.log('found: '+ el)
+                }
             }
-        }
-        const selectElement = document.getElementById('sel-discount-quantity');
-        const selectedValue = selectElement.value;
-        document.getElementById('sw-discount-quantity').innerText = selectElement.options[selectElement.selectedIndex].textContent;
+            const selectElement = document.getElementById('sel-discount-quantity');
+            const selectedValue = selectElement.value;
+            document.getElementById('sw-discount-quantity').innerText = selectElement.options[selectElement.selectedIndex].textContent;
 
-        if (2 <= selectedValue && selectedValue <= 4) {
-            productPrice = productPrice * 0.9;
-        } else if (5 <= selectedValue && selectedValue <= 7) {
-            productPrice = productPrice * 0.8;
-        } else if (8 <= selectedValue) {
-            productPrice = productPrice * 0.7;
-        }
-        document.getElementById('sw-discount-price').innerText = productPrice + ' ' + Shopify.currency.active;
+            if (2 <= selectedValue && selectedValue <= 4) {
+                productPrice = productPrice * 0.9;
+            } else if (5 <= selectedValue && selectedValue <= 7) {
+                productPrice = productPrice * 0.8;
+            } else if (8 <= selectedValue) {
+                productPrice = productPrice * 0.7;
+            }
+            document.getElementById('sw-discount-price').innerText = productPrice + ' ' + Shopify.currency.active;
     }
 
     function getProductVariant(){
@@ -174,7 +174,7 @@
         hookEventTabPanel('tab2', 'content-tab2');
 
         const observer = new MutationObserver(calcDiscountTotalPrice);
-        observer.observe(document.getElementsByTagName('product-info').item(0), { attributes: true, childList: true, subtree: true });
+        observer.observe(document.getElementsByTagName('variant-selects').item(0), { attributes: true, childList: true, subtree: true });
     });
 
 </script>
