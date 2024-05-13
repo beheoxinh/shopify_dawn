@@ -139,11 +139,11 @@
     }
 
     function calcDiscountTotalPrice() {
-        const prodVariant = getProductVariant();
-        let productPrice = 0;
+        let productPrice = 0; const prodVariant = getProductVariant();
+
         for (const el of meta.product.variants) {
             if(prodVariant=== el.id){
-               let productPrice = el.price;
+               productPrice = el.price;
                break;
             }
         }
