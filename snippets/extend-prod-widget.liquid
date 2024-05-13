@@ -8,9 +8,9 @@
     <div class="tab-content">
         <div class="tab-section-content" id="content-tab1">
             <label>
-                <select name="quantity">
-                    <option>Standard shipping</option>
-                    <option>Fast shipping</option>
+                <select name="quantity" id="sel-shipping-method" onchange="calcDateDelivery()">
+                    <option value="standard">Standard shipping</option>
+                    <option value="fast">Fast shipping</option>
                 </select>
             </label>
             <div class="shipping-render">
@@ -18,7 +18,7 @@
                     <li class="chain-node">
                         <p class="process-title">Order Date</p>
                         <img id="cart-process" src="" alt="error">
-                        <p class="process-date" id="ordered-day">20/08</p>
+                        <p class="process-date" id="ordered-day"></p>
                     </li>
                     <li class="chain-line">
                         <hr>
@@ -26,16 +26,24 @@
                     <li class="chain-node">
                         <p class="process-title">Delivery Date</p>
                         <img id="shipping-process" src="" alt="error">
-                        <p class="process-date" id="estimate-day">22/08-24/08</p>
+                        <p class="process-date" id="delivery-day"></p>
                     </li>
                 </ul>
             </div>
         </div>
         <div class="tab-section-content hidden" id="content-tab2">
             <label>
-                <select name="quantity">
-                    <option>Buy 1 item</option>
-                    <option>Buy 2 items</option>
+                <select name="quantity" id="sel-discount-quantity" onchange="calcDiscountTotalPrice()">
+                    <option value="1">Buy 1 item</option>
+                    <option value="2">Buy 2 items</option>
+                    <option value="3">Buy 3 items</option>
+                    <option value="4">Buy 4 items</option>
+                    <option value="5">Buy 5 items</option>
+                    <option value="6">Buy 6 items</option>
+                    <option value="7">Buy 7 items</option>
+                    <option value="8">Buy 8 items</option>
+                    <option value="9">Buy 9 items</option>
+                    <option value="10">Buy 10 items</option>
                 </select>
             </label>
             <table>
@@ -44,8 +52,8 @@
                     <th>Price</th>
                 </tr>
                 <tr>
-                    <td>Buy 1 item</td>
-                    <td>$10</td>
+                    <td id="sw-discount-quantity"></td>
+                    <td id="sw-discount-price"></td>
                 </tr>
             </table>
         </div>
@@ -98,25 +106,60 @@
         });
     }
 
-    function calcDateDelivery(){
-        console.log('calc >>>>>>>>>>>>>>')
-        let currentDate = new Date();
 
-        document.getElementById('ordered-day').
-        currentDate.setDate(currentDate.getDate() + 3);
-        let day = currentDate.getDate();
-        let month = currentDate.getMonth() + 1;
-        let year = currentDate.getFullYear();
+    function calcDateDelivery() {
+        let currentDate = new Date();
+        const shipMethod = document.getElementById('sel-shipping-method').value;
+        console.log('shipMethod: ', shipMethod)
+        document.getElementById('ordered-day').innerText = formatDate(currentDate);
+        let deliveryDateMin = new Date(currentDate);
+        let deliveryDateMax = new Date(currentDate);
+        switch (shipMethod) {
+            case 'standard':
+                deliveryDateMin.setDate(deliveryDateMin.getDate() + 5)
+                deliveryDateMax.setDate(deliveryDateMax.getDate() + 7)
+                break
+            case 'fast':
+                deliveryDateMin.setDate(deliveryDateMin.getDate() + 2)
+                deliveryDateMax.setDate(deliveryDateMax.getDate() + 4)
+                break
+        }
+        document.getElementById('delivery-day').innerText = formatDate(deliveryDateMin) + '-' + formatDate(deliveryDateMax);
+    }
+
+    function formatDate(payload) {
+        console.log('payload: ', payload)
+        let day = payload.getDate();
+        let month = payload.getMonth() + 1;
+        // let year = payload.getFullYear();
+
         day = day < 10 ? '0' + day : day;
         month = month < 10 ? '0' + month : month;
-        let formattedDate = day + '/' + month + '/' + year;
-        console.log("Delivery Date: ", formattedDate);
+        return day + '/' + month;
     }
-    calcDateDelivery();
+
+    function calcDiscountTotalPrice() {
+        let productPrice = 10000;
+        const selectElement = document.getElementById('sel-discount-quantity');
+        const selectedValue = selectElement.value;
+        document.getElementById('sw-discount-quantity').innerText = selectElement.options[selectElement.selectedIndex].textContent;
+
+        if (2 <= selectedValue && selectedValue <= 4) {
+            productPrice = productPrice * 0.9;
+        } else if (5 <= selectedValue && selectedValue <= 7) {
+            productPrice = productPrice * 0.8;
+        } else if (8 <= selectedValue) {
+            productPrice = productPrice * 0.7;
+        }
+        document.getElementById('sw-discount-price').innerText = productPrice;
+    }
 
     document.addEventListener("DOMContentLoaded", function () {
+        calcDateDelivery();
+        calcDiscountTotalPrice();
         setTabActive('tab1', 'content-tab1');
         hookEventTabPanel('tab1', 'content-tab1');
         hookEventTabPanel('tab2', 'content-tab2');
     });
+
 </script>
